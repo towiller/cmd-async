@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package common.service.srv;
+
+service Call{
+    rpc Action(CallRequest) returns(CallResponse){};
+}
+
+message CallRequest{
+    string action = 1;
+    map<string, string> header = 2;
+    map<string, google.protobuf.Any> body = 3;
+}
+
+message CallResponse{
+    int32 status = 1;
+    string msg = 2;
+    map<string, google.protobuf.Any> content = 3;
+}
+
+message TypeString{
+    string value = 1;
+}
+
+message TypeBool{
+    bool value = 1;
+}
+
+message TypeInt64{
+    int64 value = 1;
+}
+
+message TypeUint64{
+    uint64 value = 1;
+}
+
+message TypeSint64{
+    sint64 value = 1;
+}
+
+message TypeSint32{
+    sint32 value = 1;
+}
+
+message TypeInt32{
+    int32 value = 1;
+}
+
+message TypeUint32{
+    uint32 value = 1;
+}
+
+message TypeDouble{
+    double value = 1;
+}
+
+message TypeFloat{
+    float value = 1;
+}
+
+message TypeFixed32{
+    fixed32 value = 1;
+}
+
+message TypeFixed64{
+    fixed64 value = 1;
+}
+
+message TypeSfixed32{
+    sfixed32 value = 1;
+}
+
+message TypeSfixed64{
+    sfixed64 value = 1;
+}
+
+message TypeBytes{
+    bytes value = 1;
+}
